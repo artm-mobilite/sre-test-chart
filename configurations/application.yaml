@@ -1,0 +1,30 @@
+metadata:
+  name: test-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: test
+    environment: ci
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite/dummy-app:~0.0.1
+spec:
+  destination:
+    namespace: test-dummy
+    name: in-cluster
+  project: default
+  source:
+    path: dummy
+    repoURL: https://github.com/artm-mobilite/sre-test-chart
+    targetRevision: HEAD
+    helm:
+      valuesObject:
+        image:
+          registry: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
