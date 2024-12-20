@@ -8,8 +8,7 @@ metadata:
     environment: ci
   annotations:
     argocd-image-updater.argoproj.io/image-list: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite/dummy-app:~0.0.1
-    image-list: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite/dummy-app:~0.0.1
-    foo: bar
+    argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
   destination:
     namespace: test-dummy
