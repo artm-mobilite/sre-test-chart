@@ -1,8 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: dummy-app
-  tag: 0.0.1
+  registry: ghcr.io
+  repository: artm-mobilite/integration-eventcatalog
+  tag: 0.1.1
   pullPolicy: IfNotPresent
 
 containerPort: 80

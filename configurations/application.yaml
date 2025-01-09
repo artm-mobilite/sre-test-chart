@@ -7,8 +7,8 @@ metadata:
     name: test
     environment: ci
   annotations:
-    foo: bar
-    argocd-image-updater.argoproj.io/image-list: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite/dummy-app:0.x
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/artm-mobilite/integration-eventcatalog:0.x
+    #argocd-image-updater.argoproj.io/image-list: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite/dummy-app:0.x
     argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
   destination:
