@@ -20,9 +20,9 @@ spec:
     repoURL: https://github.com/artm-mobilite/sre-test-chart
     targetRevision: HEAD
     helm:
-      valuesObject:
-        image:
-          registry: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite
+      #valuesObject:
+      #  image:
+      #    registry: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite
   syncPolicy:
     automated:
       prune: true
