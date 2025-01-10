@@ -7,8 +7,10 @@ metadata:
     name: test
     environment: ci
   annotations:
-    argocd-image-updater.argoproj.io/image-list: ghcr.io/artm-mobilite/integration-eventcatalog:0.x
     #argocd-image-updater.argoproj.io/image-list: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite/dummy-app:0.x
+    #argocd-image-updater.argoproj.io/update-strategy: semver
+    argocd-image-updater.argoproj.io/image-list: eventcatalog=acrsreccedsharedc0d.azurecr.io/artm-mobilite/integration-eventcatalog:0.x
+    argocd-image-updater.argoproj.io/kustomize.image-name: ghcr.io
     argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
   destination:
@@ -20,9 +22,10 @@ spec:
     repoURL: https://github.com/artm-mobilite/sre-test-chart
     targetRevision: HEAD
     helm:
-      #valuesObject:
-      #  image:
-      #    registry: acrsreccedsharedc0d.azurecr.io/ghcr-artm-mobilite
+      valuesObject:
+        secretName: regcred
+        image:
+          registry: acrsreccedsharedc0d.azurecr.io
   syncPolicy:
     automated:
       prune: true
